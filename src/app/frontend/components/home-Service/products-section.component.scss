@@ -1,0 +1,79 @@
+:host { 
+  --brand: #1e88e5;
+  display: block;
+  //font-family: 'Urbanist', var(--bs-font-sans-serif);
+}
+
+ .products { 
+  background-color: #e0e1e2;
+ }
+
+ .card-body {
+    background: #fff;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+h2#products-title {
+    color: #052642;
+}
+.text-brand {
+  color: var(--brand);
+}
+
+p.fs-6.text-secondary.mb-0 {
+    color: #333 !important;
+}
+
+// Underline-style tabs built on Bootstrap's .nav / .nav-link
+.tabs-scroll {
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    --bs-nav-link-color: #5f6b7a;
+    --bs-nav-link-hover-color: #111;
+    --bs-nav-link-font-size: 1.1rem;
+    --bs-nav-link-font-weight: 500;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: none;
+
+    &.active {
+      color: #111;
+      border-bottom-color: var(--brand);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.2rem rgba(86, 107, 72, 0.35);
+    }
+  }
+}
+
+// Card image ratio matching the design (394 x 262)
+.card-media {
+  --bs-aspect-ratio: 66.5%;
+  background: #f3f3f3;
+}
+
+.card-title {
+  color: #333;
+}

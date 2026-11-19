@@ -1,0 +1,32 @@
+<section class="hero" (mouseenter)="pause()" (mouseleave)="play()">
+  <!-- ===== Slides ===== -->
+  <div class="slides">
+    @for (slide of slides; track slide.title; let i = $index) {
+      <article class="slide" [class.slide--active]="i === current()" [style.background-image]="'url(' + slide.image + ')'">
+        <div class="slide__overlay"></div>
+        <div class="slide__content">
+          <h6 class="slide__eyebrow">{{ slide.eyebrow }}</h6>
+          <h4 class="slide__title">{{ slide.title }}</h4>
+          <p class="slide__text">
+            @if (slide.lead) { <strong>{{ slide.lead }}</strong> } {{ slide.text }}
+          </p>
+          <!-- @if (slide.cta) {
+            <a class="slide__cta" [href]="slide.cta.href">{{ slide.cta.label }}</a>
+          } -->
+        </div>
+      </article>
+    }
+  </div>
+
+  <!-- ===== Controls ===== -->
+  <button class="arrow arrow--prev" type="button" aria-label="Previous slide" (click)="prev()">&#10094;</button>
+  <button class="arrow arrow--next" type="button" aria-label="Next slide" (click)="next()">&#10095;</button>
+
+  <ol class="dots">
+    @for (slide of slides; track slide.title; let i = $index) {
+      <li>
+        <button type="button" [class.active]="i === current()" [attr.aria-label]="'Go to slide ' + (i + 1)" (click)="goTo(i)"></button>
+      </li>
+    }
+  </ol>
+</section>

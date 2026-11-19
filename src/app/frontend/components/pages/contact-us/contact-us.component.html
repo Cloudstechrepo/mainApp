@@ -1,0 +1,281 @@
+<!-- Inner Banner -->
+<section class="inner-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content"> 
+
+      <h1>{{ banner.title }}</h1>
+      <p>{{ banner.subtitle }}</p>
+
+      <!-- Breadcrumb -->
+      <app-breadcrumb [currentUrl]="currentUrl"></app-breadcrumb>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+
+    <!-- Section Heading -->
+    <div class="section-heading">
+      <span class="section-label">GET IN TOUCH</span>
+
+      <h2>
+        Let's Discuss Your
+        <span>Next Big Idea</span>
+      </h2>
+
+      <p>
+        Have a project in mind or need help with our services?
+        Share your requirements, and our team will be happy to assist you.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- Left Side: Contact Information -->
+      <aside class="contact-sidebar">
+        <div class="sidebar-heading">
+          <span class="sidebar-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 16.92V19.92A2 2 0 0 1 19.82 21.91
+                   A19.8 19.8 0 0 1 11.19 18.84
+                   A19.5 19.5 0 0 1 5.16 12.81
+                   A19.8 19.8 0 0 1 2.09 4.18
+                   A2 2 0 0 1 4.07 2H7.08
+                   A2 2 0 0 1 9.07 3.72
+                   C9.2 4.68 9.43 5.63 9.77 6.54
+                   A2 2 0 0 1 9.32 8.65L8.05 9.92
+                   A16 16 0 0 0 14.08 15.95
+                   L15.35 14.68
+                   A2 2 0 0 1 17.46 14.23
+                   C18.37 14.57 19.32 14.8 20.28 14.93
+                   A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+
+          <h3>Contact Information</h3>
+          <p>Choose the best way to reach our team.</p>
+        </div>
+
+        <div class="contact-info-list">
+          @for (item of contactInfo; track item.title) {
+          <div class="contact-info-item">
+
+            <div class="info-icon">
+              @switch (item.icon) {
+              @case ('location') {
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 10C20 15 12 22 12 22S4 15 4 10
+                           A8 8 0 1 1 20 10Z" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7" />
+              </svg>
+              }
+
+              @case ('phone') {
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92V19.92A2 2 0 0 1 19.82 21.91
+                           A19.8 19.8 0 0 1 11.19 18.84
+                           A19.5 19.5 0 0 1 5.16 12.81
+                           A19.8 19.8 0 0 1 2.09 4.18
+                           A2 2 0 0 1 4.07 2H7.08
+                           A2 2 0 0 1 9.07 3.72
+                           C9.2 4.68 9.43 5.63 9.77 6.54
+                           A2 2 0 0 1 9.32 8.65L8.05 9.92
+                           A16 16 0 0 0 14.08 15.95
+                           L15.35 14.68
+                           A2 2 0 0 1 17.46 14.23
+                           C18.37 14.57 19.32 14.8 20.28 14.93
+                           A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              }
+
+              @case ('email') {
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7" />
+                <path d="M3 7L12 13L21 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              }
+
+              @case ('clock') {
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7" />
+                <path d="M12 7V12L15.5 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              }
+              }
+            </div>
+
+            <div class="info-content">
+              <h4>{{ item.title }}</h4>
+
+              @if (item.link) {
+              <a [href]="item.link" class="info-value">
+                {{ item.value }}
+              </a>
+              } @else {
+              <p class="info-value">{{ item.value }}</p>
+              }
+
+              <p class="info-description">{{ item.description }}</p>
+            </div>
+          </div>
+          }
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="footer-dot"></span>
+          <p>We're ready to help with your next project.</p>
+        </div>
+      </aside>
+
+      <!-- Right Side: Contact Form -->
+      <div class="contact-form-card">
+        <div class="form-heading">
+          <span class="form-label">SEND AN ENQUIRY</span>
+          <h3>Tell Us About Your Project</h3>
+          <p>
+            Complete the form below and provide a few details
+            so we can better understand your requirements.
+          </p>
+        </div>
+
+        @if (submitted) {
+        <div class="success-message" role="status">
+          <span class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12.5L9.5 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+
+          <div>
+            <h4>Thank you for contacting us!</h4>
+            <p>
+              Your form passed the local validation.
+              Connect the form to your backend API to deliver your enquiry.
+            </p>
+          </div>
+        </div>
+        }
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-row">
+            <!-- Name -->
+            <div class="form-group">
+              <label for="name">Full Name <span>*</span></label>
+
+              <input type="text" id="name" name="name" [(ngModel)]="formData.name" #name="ngModel"
+                placeholder="Enter your full name" autocomplete="name" required minlength="2"
+                [class.input-error]="name.invalid && name.touched" />
+
+              @if (name.invalid && name.touched) {
+              <small class="field-error">
+                Please enter your name (at least 2 characters).
+              </small>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email Address <span>*</span></label>
+
+              <input type="email" id="email" name="email" [(ngModel)]="formData.email" #email="ngModel"
+                placeholder="you@example.com" autocomplete="email" required email
+                [class.input-error]="email.invalid && email.touched" />
+
+              @if (email.invalid && email.touched) {
+              <small class="field-error">
+                Please enter a valid email address.
+              </small>
+              }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+
+              <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" #phone="ngModel"
+                placeholder="Enter your phone number" autocomplete="tel" pattern="[0-9+() -]{7,20}"
+                [class.input-error]="phone.invalid && phone.touched" />
+
+              @if (phone.invalid && phone.touched) {
+              <small class="field-error">
+                Please enter a valid phone number.
+              </small>
+              }
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group">
+              <label for="subject">Subject <span>*</span></label>
+
+              <select id="subject" name="subject" [(ngModel)]="formData.subject" #subject="ngModel" required
+                [class.input-error]="subject.invalid && subject.touched" aria-placeholder="Enter">
+
+                <option value="" disabled>Select a subject</option>
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Software Development">Software Development</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Partnership">Business Partnership</option>
+                <option value="Other">Other</option>
+              </select>
+
+              @if (subject.invalid && subject.touched) {
+              <small class="field-error">
+                Please select a subject.
+              </small>
+              }
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Your Message <span>*</span></label>
+
+            <textarea id="message" name="message" [(ngModel)]="formData.message" #message="ngModel"
+              placeholder="Tell us about your project or requirements..." rows="5" required minlength="10"
+              [class.input-error]="message.invalid && message.touched">
+            </textarea>
+
+            @if (message.invalid && message.touched) {
+            <small class="field-error">
+              Please enter at least 10 characters.
+            </small>
+            }
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <p class="form-note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.7" />
+              <path d="M8 10V7A4 4 0 0 1 16 7V10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+
+            Your information will be used to respond to your enquiry.
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

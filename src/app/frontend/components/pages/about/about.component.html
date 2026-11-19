@@ -1,0 +1,193 @@
+<!-- Inner Banner -->
+<section class="inner-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content"> 
+      <h1>
+        {{ aboutData.banner.title }} {{ aboutData.banner.highlightedTitle }} 
+      </h1>
+
+      <p>{{ aboutData.banner.description }}</p>
+
+      <app-breadcrumb [currentUrl]="'/about-us'"></app-breadcrumb>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- About Introduction -->
+<section class="about-section">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <!-- Dynamic Image -->
+      <div class="about-image-wrapper">
+        <div class="image-background"></div>
+
+        <img [src]="aboutData.introduction.image" [alt]="aboutData.introduction.imageAlt" class="about-image"
+          loading="lazy" />
+
+        <div class="image-badge">
+          <span class="badge-title">
+            {{ aboutData.introduction.badgeTitle }}
+          </span>
+
+          <span class="badge-description">
+            {{ aboutData.introduction.badgeDescription }}
+          </span>
+        </div>
+      </div>
+
+
+      <!-- Dynamic Introduction -->
+      <div class="about-content">
+
+        <span class="section-label">
+          {{ aboutData.introduction.label }}
+        </span>
+
+        <h2>
+          {{ aboutData.introduction.title }}
+          <span>{{ aboutData.introduction.highlightedTitle }}</span>
+        </h2>
+
+        @for (
+        paragraph of aboutData.introduction.paragraphs;
+        track paragraph
+        ) {
+        <p>{{ paragraph }}</p>
+        }
+
+
+        <!-- Dynamic Highlights -->
+        <div class="about-highlights">
+
+          @for (
+          highlight of aboutData.introduction.highlights;
+          track highlight.id
+          ) {
+          <div class="highlight-item">
+
+            <span class="highlight-icon" aria-hidden="true">
+              ✓
+            </span>
+
+            <span>{{ highlight.title }}</span>
+
+          </div>
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Dynamic Services -->
+<section class="what-we-do">
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        {{ aboutData.services.label }}
+      </span>
+
+      <h2>
+        {{ aboutData.services.title }}
+        <span>{{ aboutData.services.highlightedTitle }}</span>
+      </h2>
+
+      <p>{{ aboutData.services.description }}</p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+      @for (
+      service of aboutData.services.items;
+      track service.id
+      ) {
+
+      <article class="service-card">
+
+        <div class="service-icon">
+
+          @switch (service.icon) {
+
+          @case ('software') {
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="5" y="7" width="38" height="28" rx="4" stroke="currentColor" stroke-width="2.5" />
+            <path d="M17 42H31M24 35V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M15 17H33M15 23H27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          }
+
+          @case ('digital') {
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2.5" />
+            <path d="M7 24H41M24 7C29 12 32 18 32 24C32 30 29 36 24 41C19 36 16 30 16 24C16 18 19 12 24 7Z"
+              stroke="currentColor" stroke-width="2" />
+          </svg>
+          }
+
+          @case ('business') {
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="6" y="6" width="36" height="36" rx="5" stroke="currentColor" stroke-width="2.5" />
+            <path d="M14 32V24M22 32V15M30 32V20M38 32V11" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" />
+          </svg>
+          }
+
+          }
+
+        </div>
+
+        <h3>{{ service.title }}</h3>
+
+        <p>{{ service.description }}</p>
+
+      </article>
+
+      }
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Dynamic CTA -->
+<section class="about-cta">
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div>
+
+        <span class="cta-label">
+          {{ aboutData.cta.label }}
+        </span>
+
+        <h2>
+          {{ aboutData.cta.title }}
+          <span>{{ aboutData.cta.highlightedTitle }}</span>
+        </h2>
+
+        <p>{{ aboutData.cta.description }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

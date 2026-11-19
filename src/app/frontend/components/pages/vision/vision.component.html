@@ -1,0 +1,235 @@
+<!-- Inner Banner: Same style as About and Contact pages -->
+<section class="inner-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content">
+      <h1>{{ banner.title }}</h1>
+      <p>{{ banner.subtitle }}</p>
+      <app-breadcrumb [currentUrl]="currentUrl"></app-breadcrumb>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Vision Introduction -->
+<section class="vision-section">
+  <div class="container">
+    <div class="vision-grid">
+      <!-- Left: Vision Image -->
+      <div class="vision-visual">
+        <div class="vision-image-wrapper">
+          <img [src]="vision.image" [alt]="vision.imageAlt" class="vision-image" loading="lazy" />
+
+          <div class="image-overlay"></div>
+
+        </div>
+
+        <div class="visual-decoration"></div>
+        <div class="visual-dot dot-one"></div>
+        <div class="visual-dot dot-two"></div>
+      </div>
+
+      <!-- Right: Vision Content -->
+      <div class="vision-content">
+        <span class="section-label">
+          <span class="section-label-line"></span>
+          {{ vision.label }}
+        </span>
+
+        <h2>
+          Building a Smarter,
+          <span>More Connected</span>
+          Digital Future
+        </h2>
+
+        <p class="vision-description">
+          {{ vision.description }}
+        </p>
+
+        <p class="vision-secondary">
+          {{ vision.secondaryDescription }}
+        </p>
+
+        <a routerLink="/contactus" class="vision-btn">
+          Let's Talk Now
+
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision Values -->
+<section class="values-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">
+        WHAT GUIDES US
+      </span>
+
+      <h2>
+        The Principles Behind
+        <span>Our Vision</span>
+      </h2>
+
+      <p>
+        Our vision is shaped by the principles that influence
+        how we innovate, collaborate, and deliver value to our clients.
+      </p>
+    </div>
+
+    <div class="values-grid">
+      @for (value of values; track value.number) {
+      <article class="value-card">
+
+        <div class="value-card-top">
+          <span class="value-number">{{ value.number }}</span>
+
+          <span class="value-icon">
+            @switch (value.icon) {
+            @case ('innovation') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18H15M10 22H14M8.5 14.5
+                         C7.1 13.5 6 11.8 6 9.8
+                         A6 6 0 0 1 18 9.8
+                         C18 11.8 16.9 13.5 15.5 14.5
+                         C14.8 15 14.5 16 14.5 17H9.5
+                         C9.5 16 9.2 15 8.5 14.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M12 1V3M3.5 4.5L5 6M20.5 4.5L19 6" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+            </svg>
+            }
+
+            @case ('growth') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 20H21M5 16L10 11L13.5 14.5L21 6.5" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M15 6.5H21V12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            }
+
+            @case ('customer') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M16 21V19A4 4 0 0 0 12 15H8
+                         A4 4 0 0 0 4 19V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.7" />
+              <path d="M16 11L18 13L22 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            }
+            }
+          </span>
+        </div>
+
+        <h3>{{ value.title }}</h3>
+
+        <p>{{ value.description }}</p>
+
+        <!-- <div class="card-bottom">
+          <span>Our Commitment</span>
+
+          <span class="card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div> -->
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Future Goals -->
+<section class="goals-section">
+  <div class="container">
+    <div class="goals-wrapper">
+
+      <div class="goals-intro">
+        <span class="section-label goals-label">
+          LOOKING AHEAD
+        </span>
+
+        <h2>
+          Our Vision for
+          <span>Tomorrow</span>
+        </h2>
+
+        <p>
+          We believe the future belongs to businesses that embrace
+          change, invest in innovation, and put people first.
+          Our goals reflect our commitment to building that future.
+        </p>
+
+        <a routerLink="/contactus" class="vision-btn">
+          Connect us
+
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="goals-list">
+        @for (goal of goals; track goal.title; let i = $index) {
+        <article class="goal-item">
+          <span class="goal-number">
+            {{ (i + 1).toString().padStart(2, '0') }}
+          </span>
+
+          <div class="goal-content">
+            <h3>{{ goal.title }}</h3>
+            <p>{{ goal.description }}</p>
+          </div>
+
+          <span class="goal-arrow" aria-hidden="true">↗</span>
+        </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="vision-cta-section">
+  <div class="container">
+    <div class="vision-cta">
+      <div class="cta-icon">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3L14.8 8.7L21 9.6L16.5 14L17.6 20.2
+               L12 17.2L6.4 20.2L7.5 14L3 9.6L9.2 8.7L12 3Z" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <div class="cta-content">
+        <h2>Let's Build the Future Together</h2>
+        <p>
+          Have an idea or a business challenge?
+          Let's explore what's possible with technology.
+        </p>
+      </div>
+
+      <a routerLink="/contactus" class="vision-btn">
+        Let's Talk Now
+
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

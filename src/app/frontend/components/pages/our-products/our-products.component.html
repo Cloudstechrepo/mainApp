@@ -1,0 +1,285 @@
+<!-- Inner Banner -->
+<section class="products-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content">
+      <h1>
+        Our Products
+      </h1>
+      <p>
+        Smart technology solutions designed to simplify operations,
+        empower teams, and accelerate business growth.
+      </p>
+
+      <!-- Breadcrumb -->
+      <app-breadcrumb [currentUrl]="currentUrl"></app-breadcrumb>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Products Introduction -->
+<section class="products-intro section-padding">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        TECHNOLOGY THAT WORKS FOR YOU
+      </span>
+
+      <h2>
+        Solutions That Help Your
+        <span>Business Grow</span>
+      </h2>
+
+      <p>
+        At CloudsTech, we provide technology-driven products
+        that help businesses improve efficiency, optimize workflows,
+        and make smarter decisions.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Products Grid -->
+<section class="products-section">
+
+  <div class="container">
+
+    <div class="products-header">
+
+      <div>
+        <span class="section-label">EXPLORE OUR SOLUTIONS</span>
+        <h2>Our Product Portfolio</h2>
+      </div>
+
+      <p>
+        Flexible, scalable, and business-focused solutions
+        built around your needs.
+      </p>
+
+    </div>
+
+
+    <div class="products-grid">
+      
+      @for (
+      product of products;
+      track product.id
+      ) {
+      <a [routerLink]="['/productDetails', product.slug]">
+      <article class="product-card">
+        <!-- Product Image -->
+        <div class="product-image-wrapper">
+          <img [src]="product.image" [alt]="product.name" class="product-image" loading="lazy" />
+          <span class="product-number">
+            {{ product.id < 10 ? '0' + product.id : product.id }} </span>
+        </div>
+        <!-- Product Content -->
+        <div class="product-content">
+          <span class="product-category">
+            {{ product.category }}
+          </span>
+          <h3>
+            {{ product.name }}
+          </h3>
+          <p class="product-description">
+            {{ product.shortDescription }}
+          </p>
+          <!-- Product Features -->
+          <ul class="product-features">
+            @for (
+            feature of product.features;
+            track feature
+            ) {
+            <li>
+              <span class="feature-check" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 10.5L8 14.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>{{ feature }}</span>
+            </li>
+            }
+          </ul>
+          <!-- Product Action -->
+          <!-- <button class="product-details-link">
+            Explore Product
+            <span aria-hidden="true">→</span>
+          </button> -->
+        </div>
+      </article>
+       </a>
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Why Choose Us -->
+<section class="products-benefits section-padding">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        THE NPTECH ADVANTAGE
+      </span>
+
+      <h2>
+        Why Choose Our
+        <span>Solutions?</span>
+      </h2>
+
+      <p>
+        We focus on practical technology that supports your
+        business goals and adapts as your organization grows.
+      </p>
+
+    </div>
+
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+
+        <div class="benefit-icon">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 5L39 11V22C39 31 32.5 38 24 43C15.5 38 9 31 9 22V11L24 5Z" stroke="currentColor"
+              stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M17 24L22 29L32 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <h3>Reliable Technology</h3>
+
+        <p>
+          Business-focused solutions designed with reliability,
+          security, and maintainability in mind.
+        </p>
+
+      </div>
+
+
+      <div class="benefit-card">
+
+        <div class="benefit-icon">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="6" y="6" width="36" height="36" rx="7" stroke="currentColor" stroke-width="2.5" />
+            <path d="M16 32V24M24 32V16M32 32V21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <h3>Scalable Solutions</h3>
+
+        <p>
+          Flexible software solutions that can evolve alongside
+          your changing business requirements.
+        </p>
+
+      </div>
+
+
+      <div class="benefit-card">
+
+        <div class="benefit-icon">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2.5" />
+            <path d="M9 41C9 32.7 15.7 27 24 27C32.3 27 39 32.7 39 41" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <h3>Customer-Focused</h3>
+
+        <p>
+          Solutions aligned with your objectives, processes,
+          and the needs of your users.
+        </p>
+
+      </div>
+
+
+      <div class="benefit-card">
+
+        <div class="benefit-icon">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 5L27.5 17L40 20.5L27.5 24L24 36L20.5 24L8 20.5L20.5 17L24 5Z" stroke="currentColor"
+              stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M37 31L39 37L45 39L39 41L37 47L35 41L29 39L35 37L37 31Z" stroke="currentColor" stroke-width="1.8"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <h3>Continuous Improvement</h3>
+
+        <p>
+          A commitment to improving business processes through
+          thoughtful technology and ongoing support.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Call To Action -->
+<section class="products-cta">
+
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div class="cta-text">
+
+        <span class="cta-label">
+          LET'S BUILD SOMETHING BETTER
+        </span>
+
+        <h2>
+          Looking for the Right
+          <span>Solution for Your Business?</span>
+        </h2>
+
+        <p>
+          Let's discuss your requirements and find a solution
+          that fits your business goals.
+        </p>
+
+      </div>
+
+      <a routerLink="/contact" class="cta-button">
+
+        <span>Talk to Our Team</span>
+
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

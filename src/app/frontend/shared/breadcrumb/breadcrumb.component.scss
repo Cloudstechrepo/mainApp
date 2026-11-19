@@ -1,0 +1,39 @@
+:host {
+  display: block;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.breadcrumb-home {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: #ddd;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+} 
+
+.breadcrumb-separator {
+  color: #fff;
+}
+
+.breadcrumb-current {
+  color: #fff;
+  font-weight: 700;text-transform: uppercase;
+  overflow-wrap: anywhere;
+}

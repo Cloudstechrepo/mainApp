@@ -1,1 +1,284 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use "bootstrap/scss/bootstrap";
+
+/* ============================================================
+   GLOBAL CSS CUSTOM PROPERTIES — DARK / LIGHT THEME
+   Modelled after cloudstrats.ai's deep midnight navy palette
+   ============================================================ */
+   
+* {
+  //font-family: 'Poppins', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+:root {
+  /* ---- Light Theme ---- */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #f1f5f9;
+  --bg-surface-hover: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-transparent: transparent;
+
+  --text-primary: #0f172a;
+  --text-secondary: #ffffff;
+  --text-muted: #94a3b8;
+
+  --border-color: rgba(15, 23, 42, 0.1);
+  --border-hover: rgba(15, 23, 42, 0.2);
+
+  --accent-cyan: #0ea5e9;
+  --accent-blue: #3b82f6;
+  --accent-indigo: #6366f1;
+  --accent-purple: #8b5cf6;
+  --accent-emerald: #10b981;
+
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-border: rgba(15, 23, 42, 0.08);
+
+  --card-bg: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+
+  --cta-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  --cta-glow: 0 0 24px rgba(14, 165, 233, 0.35);
+  --cta-text: #ffffff;
+  --cta-inner-bg: #0f172a;
+
+  --hero-gradient: linear-gradient(160deg, #f0f9ff 0%, #ede9fe 50%, #f0f9ff 100%);
+}
+
+body.dark-theme,
+[data-bs-theme="dark"] {
+  /* ---- Dark Theme (Cloudstrats AI) ---- */
+  --bg-primary: #576c4d;
+  --bg-secondary: #576c4d;
+  --bg-surface: #576c4d;
+  --bg-surface-hover: #576c4d;
+  --bg-glass: #4e6145;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-color: #576c4d;
+  --border-header-color:#576c4d;
+  --border-hover: #576c4d;
+
+  --accent-cyan: #22d3ee;
+  --accent-blue: #60a5fa;
+  --accent-indigo: #818cf8;
+  --accent-purple: #a78bfa;
+  --accent-emerald: #34d399;
+
+  --header-bg: #576c4d;
+  --header-border: rgba(255, 255, 255, 0.06);
+
+  --card-bg: #576c4d;
+  --card-border: #576c4d;
+  --card-shadow: 0 8px 32px #576c4d;
+
+  --cta-gradient: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+  --cta-glow: 0 0 28px rgba(34, 211, 238, 0.4);
+  --cta-text: #0b0f19;
+  --cta-inner-bg: transparent;
+
+  --hero-gradient: linear-gradient(160deg, #0b0f19 0%, #0f1525 50%, #0b0f19 100%);
+}
+
+/* ============================================================
+   BASE ELEMENTS
+   ============================================================ */
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  @include mat.theme(
+    (
+      color: (primary: mat.$azure-palette, tertiary: mat.$blue-palette),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+ 
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material symbols vertical alignment */
+.material-symbols-outlined {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Smooth Bootstrap carousel fade */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 0.65s ease-in-out;
+}
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel-fade .carousel-item-prev.carousel-item-end {
+  opacity: 1;
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+/* ---- Utility: gradient text ---- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.material-icons,
+.mat-icon {
+  font-family: 'Material Icons' !important;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

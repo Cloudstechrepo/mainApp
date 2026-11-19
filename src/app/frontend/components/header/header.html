@@ -1,0 +1,42 @@
+<header class="cs-header" [class.scrolled]="scrolled()">
+    <div class="container-xl d-flex align-items-center justify-content-between h-100 px-3">
+        <!-- ========= LOGO ========= -->
+        <a href="/" class="cs-logo" (click)="closeMobile()">
+            <img src="Cloudstech _Logo.png" alt="Cloudstech Logo" />
+        </a>
+
+        <!-- ========= DESKTOP NAV ========= -->
+        <nav class="cs-nav d-none d-lg-flex">
+            @for (link of navLinks; track link.label) {
+            <a [routerLink]="link.href" class="cs-nav-link">{{ link.label }}</a>
+            }
+        </nav>
+
+        <!-- ========= RIGHT ACTIONS ========= -->
+        <div class="cs-actions">
+            <!-- Mobile Toggle -->
+            <button type="button" class="cs-mobile-btn d-lg-none" (click)="toggleMobile()" aria-label="Menu"
+                [attr.aria-expanded]="mobileOpen()">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" aria-hidden="true">
+                    @if (mobileOpen()) {
+                    <path d="M5 5l14 14M19 5L5 19" />
+                    } @else {
+                    <path d="M3 6h18M3 12h18M3 18h18" />
+                    }
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========= MOBILE DRAWER ========= -->
+    @if (mobileOpen()) {
+    <div class="cs-mobile-drawer d-lg-none" (click)="closeMobile()">
+        <nav class="mobile-nav" (click)="$event.stopPropagation()">
+            @for (link of navLinks; track link.label) {
+            <a [href]="link.href" class="mobile-link" (click)="closeMobile()">{{ link.label }}</a>
+            }
+        </nav>
+    </div>
+    }
+</header>

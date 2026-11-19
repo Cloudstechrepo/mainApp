@@ -1,0 +1,158 @@
+<!-- ================================
+     INNER BANNER
+================================= -->
+<section class="inner-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content"> 
+
+      <h1>{{ banner.title }}</h1>
+
+      <p>{{ banner.subtitle }}</p>
+      <app-breadcrumb [currentUrl]="currentUrl"></app-breadcrumb>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================================
+     OPEN POSITIONS
+================================= -->
+<section class="jobs-section" id="open-positions">
+  <div class="container">
+
+    <div class="jobs-heading">
+      <div>
+        <span class="section-label">
+          CAREER OPPORTUNITIES
+        </span>
+
+        <h2>
+          Find Your <span>Next Role</span>
+        </h2>
+
+        <p>
+          Explore our sample job listings and discover where your skills
+          could make a difference.
+        </p>
+      </div>
+
+      <div class="openings-count">
+        <span class="count-number">{{ totalOpenings }}</span>
+        <span class="count-label">Listed Positions</span>
+      </div>
+    </div>
+
+    <div class="jobs-list">
+      @for (job of jobs; track job.id) {
+      <article class="job-card">
+
+        <div class="job-main">
+          <div class="job-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7" />
+              <path d="M8 7V5A2 2 0 0 1 10 3H14
+                     A2 2 0 0 1 16 5V7
+                     M3 12H21M10 12V14H14V12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <div class="job-info">
+            <!-- <span class="job-department">{{ job.department }}</span> -->
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.description }}</p>
+
+            <div class="job-skills">
+              @for (skill of job.skills; track skill) {
+              <span>{{ skill }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="job-details">
+          <div class="job-detail">
+            <span class="detail-label">Experience</span>
+            <strong>{{ job.experience }}</strong>
+          </div>
+
+          <div class="job-detail">
+            <span class="detail-label">Location</span>
+            <strong>{{ job.location }}</strong>
+          </div>
+
+          <div class="job-detail">
+            <span class="detail-label">Employment</span>
+            <strong>{{ job.employmentType }}</strong>
+          </div>
+
+          <a routerLink="/contact" [queryParams]="{ subject: 'Job Application: ' + job.title }" class="apply-btn">
+            Apply Now
+
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </article>
+      } @empty {
+      <div class="no-jobs">
+        <h3>No Current Openings</h3>
+        <p>
+          There are no listed positions at the moment.
+          Please contact us to discuss future opportunities.
+        </p>
+        <a routerLink="/contact" class="primary-btn">
+          Contact Us
+        </a>
+      </div>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================
+     HIRING PROCESS
+================================= -->
+<section class="hiring-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label hiring-label">
+        OUR HIRING PROCESS
+      </span>
+
+      <h2>
+        Your Journey
+        <span>Starts Here</span>
+      </h2>
+
+      <p>
+        A clear overview of the typical steps candidates may experience
+        during recruitment.
+      </p>
+    </div>
+
+    <div class="hiring-grid">
+      @for (step of hiringSteps; track step.number) {
+      <article class="hiring-card">
+
+        <div class="hiring-number">
+          {{ step.number }}
+        </div>
+
+        <div class="hiring-card-content">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+
+        <span class="hiring-decoration" aria-hidden="true"></span>
+      </article>
+      }
+    </div>
+  </div>
+</section>

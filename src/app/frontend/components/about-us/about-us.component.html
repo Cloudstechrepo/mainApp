@@ -1,0 +1,37 @@
+<section class="about">
+  <!-- decorative rounded triangle (top-right) -->
+
+
+  <svg class="about__shape" viewBox="0 0 200 200" aria-hidden="true"
+    style="--icon-color-start: #052642; --icon-color-end: #052642;">
+    <defs>
+      <linearGradient id="aboutShapeGradient" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="var(--icon-color-start)" />
+        <stop offset="1" stop-color="var(--icon-color-end)" />
+      </linearGradient>
+    </defs>
+
+    <polygon points="30,60 160,22 138,150" fill="url(#aboutShapeGradient)" stroke="url(#aboutShapeGradient)"
+      stroke-width="34" stroke-linejoin="round" />
+  </svg>
+
+
+  <div class="about__container">
+    <!-- ===== Image side ===== -->
+    <div class="about__media">
+      <span class="about__dots" aria-hidden="true"></span>
+      <div class="about__card">
+        <img class="about__img" src="Circular_Corporate_Team_Meeting.png" [alt]="imageAlt" />
+      </div>
+    </div>
+
+    <!-- ===== Content side ===== -->
+    <div class="about__content">
+      <h2 class="about__title">{{ titleDark }} <span>{{ titleAccent }}</span></h2>
+      @for (para of paragraphs; track $index) {
+      <p class="about__text">{{ para }}</p>
+      }
+      <a class="about__btn" [href]="readMoreLink">Read More</a>
+    </div>
+  </div>
+</section>

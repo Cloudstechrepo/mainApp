@@ -1,0 +1,207 @@
+<!-- Inner Banner -->
+<section class="inner-banner">
+  <div class="banner-shape banner-shape-one"></div>
+  <div class="banner-shape banner-shape-two"></div>
+
+  <div class="container">
+    <div class="banner-content"> 
+
+      <h1>{{ banner.title }}</h1>
+
+      <p>{{ banner.subtitle }}</p>
+
+      <!-- Breadcrumb -->
+      <app-breadcrumb [currentUrl]="currentUrl"></app-breadcrumb>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Introduction -->
+<section class="mission-section">
+  <div class="container">
+    <div class="mission-grid">
+
+      <!-- Left: Mission Image -->
+      <div class="mission-visual">
+        <div class="mission-image-wrapper">
+          <img [src]="mission.image" [alt]="mission.imageAlt" class="mission-image" loading="lazy" />
+          <div class="image-overlay"></div>
+        </div>
+
+        <div class="visual-decoration"></div>
+        <span class="visual-dot dot-one"></span>
+        <span class="visual-dot dot-two"></span>
+      </div>
+
+      <!-- Right: Mission Content -->
+      <div class="mission-content">
+        <span class="section-label">
+          <span class="section-label-line"></span>
+          {{ mission.label }}
+        </span>
+
+        <h2>
+          Transforming Ideas Into
+          <span>Meaningful Digital Solutions</span>
+        </h2>
+
+        <p class="mission-description">
+          {{ mission.description }}
+        </p>
+
+        <p class="mission-secondary">
+          {{ mission.secondaryDescription }}
+        </p>
+
+        <a routerLink="/contactus" class="mission-btn">
+          Know more
+
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="values-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">
+        WHAT WE STAND FOR
+      </span>
+
+      <h2>
+        The Values That
+        <span>Our Mission</span>
+      </h2>
+
+      <p>
+        Our values shape every decision, every partnership, and every
+        solution we create for our customers.
+      </p>
+    </div>
+
+    <div class="values-grid">
+      @for (value of values; track value.number) {
+      <article class="value-card">
+
+        <div class="value-card-top">
+          <span class="value-number">
+            {{ value.number }}
+          </span>
+
+          <span class="value-icon">
+            @switch (value.icon) {
+            @case ('quality') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3L19 6V11C19 15.5 16 19 12 21
+                         C8 19 5 15.5 5 11V6L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            }
+
+            @case ('innovation') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18H15M10 22H14M8.5 14.5
+                         C7.1 13.5 6 11.8 6 9.8
+                         A6 6 0 0 1 18 9.8
+                         C18 11.8 16.9 13.5 15.5 14.5
+                         C14.8 15 14.5 16 14.5 17H9.5
+                         C9.5 16 9.2 15 8.5 14.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M12 1V3M3.5 4.5L5 6M20.5 4.5L19 6" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+            </svg>
+            }
+
+            @case ('collaboration') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="9" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7" />
+              <path d="M2.5 20V18A4.5 4.5 0 0 1 7 13.5H11
+                         A4.5 4.5 0 0 1 15.5 18V20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              <path d="M16 5.5A3.5 3.5 0 0 1 16 12.5
+                         M17 14H18A4 4 0 0 1 22 18V20" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+            </svg>
+            }
+
+            @case ('integrity') {
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3L19 6V11C19 15.5 16 19 12 21
+                         C8 19 5 15.5 5 11V6L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            }
+            }
+          </span>
+        </div>
+
+        <h3>{{ value.title }}</h3>
+
+        <p>{{ value.description }}</p>
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- How We Deliver -->
+<section class="approach-section">
+  <div class="container">
+    <div class="approach-grid">
+
+      <!-- Left Content -->
+      <div class="approach-intro">
+        <span class="section-label approach-label">
+          OUR APPROACH
+        </span>
+
+        <h2>
+          From Business Challenges
+          <span>to Real Solutions</span>
+        </h2>
+
+        <p>
+          We follow a clear and collaborative approach to understand
+          your needs, deliver effective solutions, and support
+          continuous improvement.
+        </p>
+
+        <a routerLink="/contactus" class="mission-btn">
+          Discuss Your Project
+
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right Steps -->
+      <div class="approach-steps">
+        @for (step of steps; track step.number) {
+        <article class="approach-step">
+
+          <span class="step-number">
+            {{ step.number }}
+          </span>
+
+          <div class="step-content">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+
+          <span class="step-arrow" aria-hidden="true">↗</span>
+        </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

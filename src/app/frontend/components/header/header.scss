@@ -1,0 +1,288 @@
+/* ===========================================================
+   HEADER — Cloudstrats-style sticky glassmorphism navbar
+   Uses global CSS variables from styles.scss
+   =========================================================== */
+
+:host {
+  display: block;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+}
+
+/* ---- Header bar ---- */
+.cs-header {
+  height: 72px;
+  //background: var(--header-bg);
+  //backdrop-filter: blur(14px);
+  //-webkit-backdrop-filter: blur(14px);
+  //border-bottom: 1px solid var(--header-border);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+
+  &.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    border-bottom-color: var(--border-hover);
+    background-color: #052642;
+
+    img {
+      width: 150px;
+    }
+  }
+}
+
+
+
+/* ---- Logo ---- */
+a.cs-logo img {
+  width: 150px;
+}
+
+.cs-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  width: 100px;
+
+  .logo-icon {
+    display: flex;
+    transition: transform 0.3s;
+  }
+
+  &:hover .logo-icon {
+    transform: scale(1.06) rotate(-3deg);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+
+  .cs-mobile-btn {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #fff; // line color
+    background: transparent; // or keep your green if you want the box
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .logo-brand {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-highlight {
+    color: var(--accent-cyan);
+  }
+
+  .logo-sub {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+  }
+}
+
+/* ---- Desktop navigation ---- */
+.cs-nav {
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.cs-nav-link {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.7px;
+    text-shadow: 1px 1px 2px #333;
+    text-transform: UPPERCASE;
+}
+
+/* ---- Right actions ---- */
+.cs-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Theme toggle */
+.cs-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-header-color);
+  background: var(--bg-transparent);
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s;
+
+  .material-symbols-outlined {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 12px #576c4d;
+  }
+}
+
+/* CTA button */
+.cs-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 10px;
+  background: var(--cta-gradient);
+  color: var(--cta-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: var(--cta-glow);
+
+  .cta-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px #576c4d;
+    color: var(--cta-text);
+
+    .cta-arrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+/* Mobile hamburger */
+.cs-mobile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--bg-surface-hover);
+  }
+}
+
+/* ---- Mobile drawer ---- */
+.cs-mobile-drawer {
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: #576c4d;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem 2rem;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 12px 32px #576c4d;
+  animation: slideDown 0.25s ease;
+}
+
+.mobile-link {
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--bg-surface);
+    color: var(--accent-cyan);
+  }
+}
+
+.mobile-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.75rem 0;
+}
+
+.mobile-theme {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+  padding: 0.7rem 1rem;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobile only
+@media (max-width: 767.98px) {
+  .cs-actions {
+    right: 20px;
+    position: relative;
+  }
+
+
+}

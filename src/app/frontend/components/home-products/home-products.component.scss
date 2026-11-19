@@ -1,0 +1,272 @@
+// Font (add to index.html):
+// <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+:host {
+  --navy: #0b1f4b;
+  --blue: #1368e8;
+  --blue-light: #2a8bff;
+  display: block;
+  font-family: 'Poppins', var(--bs-font-sans-serif);
+}
+
+// ---------- Section background ----------
+.products {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' fill-opacity='.55' d='M0 120c180-90 360-90 540-20s360 90 540 20 260-80 360-60v180H0z'/%3E%3C/svg%3E")
+      top / 100% 220px no-repeat,
+    linear-gradient(180deg, #e6f0ff 0%, #f2f7ff 55%, #eaf2ff 100%);
+}
+
+
+// ---------- Header ----------
+.products__eyebrow {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.products__title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.products__title-accent {
+  color: var(--blue);
+}
+
+.products__subtitle {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: #1c2b4a;
+}
+
+.products__bar {
+  display: inline-block;
+  width: 70px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+}
+
+// ---------- Card ----------
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f6ff 100%);
+  box-shadow: 0 10px 30px rgba(19, 104, 232, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+
+    .mat-icon {
+      width: 26px;
+      height: 26px;
+      font-size: 26px;
+      line-height: 26px;
+    }
+  }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(19, 104, 232, 0.22);
+  }
+
+  // Image is shown in full: natural height, never cropped
+  &__media {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #eef4ff;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.1rem 1rem 1.25rem;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    &--letter {
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1rem;letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  &__text {
+    flex: 1;                 // pushes the button to the bottom so all buttons align
+    margin-bottom: 1.25rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: #1c2b4a;
+  }
+
+  &__btn {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(180deg, var(--blue-light), #0a55c8);
+    box-shadow: 0 6px 14px rgba(19, 104, 232, 0.35);
+    transition: filter 0.2s, transform 0.2s;
+
+    svg { transition: transform 0.2s; }
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.08);
+      svg { transform: translateX(3px); }
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba(19, 104, 232, 0.4);
+      outline-offset: 2px;
+    }
+  }
+
+  // Loading placeholder
+  &--skeleton {
+    min-height: 420px;
+    background: linear-gradient(100deg, #eef3fb 30%, #f9fbff 50%, #eef3fb 70%) 0 0 / 200% 100%;
+    animation: shimmer 1.2s linear infinite;
+    box-shadow: none;
+  }
+}
+
+// ---------- Slider ----------
+// ---------- Slider ----------
+.slider {
+  --gap: 1.5rem;
+  --visible: 1;               // cards visible at once
+  position: relative;
+
+  @media (min-width: 576px)  { --visible: 2; }
+  @media (min-width: 992px)  { --visible: 3; }
+  @media (min-width: 1200px) { --visible: 4; }
+
+  &__track {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;            // Firefox
+    -webkit-overflow-scrolling: touch;
+
+    // room so card shadows/hover lift aren't clipped by overflow
+    padding: 1rem 0.25rem 2rem;
+    margin: -1rem -0.25rem -2rem;
+
+    &::-webkit-scrollbar { display: none; }
+    &:focus-visible { outline: 3px solid rgba(19, 104, 232, 0.4); outline-offset: 4px; }
+  }
+
+  // each card takes 1/--visible of the width
+  &__item {
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    scroll-snap-align: start;
+    display: flex;                    // equal-height cards
+  }
+
+  &__item .product-card {
+    width: 100%;
+  }
+
+  // Arrows
+  &__arrow {
+    position: absolute;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(180deg, var(--blue-light), #0a55c8);
+    box-shadow: 0 6px 16px rgba(19, 104, 232, 0.4);
+    cursor: pointer;
+    transform: translateY(75rem);
+    transition: opacity 0.2s, filter 0.2s;
+    bottom: 0;
+
+    &--prev { left: 3rem; }
+    &--next { right: 3rem; }
+
+    &:hover:not(:disabled) { filter: brightness(1.1); }
+    &:focus-visible { outline: 3px solid rgba(19, 104, 232, 0.4); outline-offset: 2px; }
+
+    &:disabled {
+      opacity: 1;
+      cursor: default;
+    }
+
+    .mat-icon { width: 28px; height: 28px; font-size: 28px; line-height: 28px; }
+  }
+
+  // keep arrows inside the screen on small devices
+  @media (max-width: 1399px) {
+    &__arrow--prev { left: 4px; }
+    &__arrow--next { right: 4px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider__track { scroll-behavior: auto; }
+}
+
+
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card, .product-card--skeleton { transition: none; animation: none; }
+}

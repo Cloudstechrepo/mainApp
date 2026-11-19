@@ -67,7 +67,6 @@ export class FooterComponent {
       title: 'Support',
       links: [
         { label: 'Privacy Policy', href: '/' },
-        { label: 'Policies' },
         { label: 'Blog' }, 
       ],
     },

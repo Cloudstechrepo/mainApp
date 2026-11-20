@@ -1,11 +1,9 @@
-
 name: Deploy CloudsTech Angular
 
 on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 jobs:
@@ -28,6 +26,9 @@ jobs:
       - name: Build Angular
         run: npm run build -- --configuration production
 
+      - name: Check build output
+        run: ls -la dist/cloudstech/browser/
+
       - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -37,4 +38,5 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: dist/cloudstech/browser/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: ./          # use cloudstech.in/ if your FTP account is the main cPanel account
+          log-level: verbose

@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "nbtech-solution": {
+    "cloudstech": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -90,10 +90,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "nbtech-solution:build:production"
+              "buildTarget": "cloudstech:build:production"
             },
             "development": {
-              "buildTarget": "nbtech-solution:build:development"
+              "buildTarget": "cloudstech:build:development"
             }
           },
           "defaultConfiguration": "development"

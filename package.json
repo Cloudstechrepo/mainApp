@@ -1,5 +1,5 @@
 {
-  "name": "nbtech-solution",
+  "name": "cloudstech",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:nbtech-solution": "node dist/nbtech-solution/server/server.mjs"
+    "serve:ssr:cloudstech": "node dist/cloudstech/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.13.0",

@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,6 +22,5 @@ export class AboutUsComponent {
     'Cloudstech offers a wide range of services, including custom software development, web application development, full-stack development, cloud solutions, API integration, and digital transformation to help businesses streamline operations and achieve their goals.',
     'At Cloudstech, we work closely with our clients to understand their unique business requirements and provide tailored technology solutions that drive efficiency, enhance user experiences, and support long-term business growth.',
   ];
-
-  readonly readMoreLink = '/about';
+ 
 }

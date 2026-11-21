@@ -38,5 +38,5 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: dist/cloudstech/browser/
-          server-dir:      # use cloudstech.in/ if your FTP account is the main cPanel account
+          server-dir: ./     # use cloudstech.in/ if your FTP account is the main cPanel account
           log-level: verbose
